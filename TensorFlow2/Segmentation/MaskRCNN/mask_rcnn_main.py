@@ -105,9 +105,6 @@ def main(argv):
             raise RuntimeError(
                 'You must specify `val_json_file` or include_groundtruth_in_features=True for evaluation.')
 
-        if not RUN_CONFIG.include_groundtruth_in_features and not os.path.isfile(RUN_CONFIG.val_json_file):
-            raise FileNotFoundError("Validation JSON File not found: %s" % RUN_CONFIG.val_json_file)
-
     dllogger.init(backends=[dllogger.JSONStreamBackend(verbosity=dllogger.Verbosity.VERBOSE,
                                                            filename=RUN_CONFIG.log_path)])
 
